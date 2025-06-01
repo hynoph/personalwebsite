@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> eric lee</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace; /* Changed font to Roboto Mono */
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .landing-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .typewriter-container {
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .typewriter {
+            font-size: 5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            opacity: 0;
+            font-family: 'Roboto Mono', monospace;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .typewriter.show {
+            opacity: 1;
+        }
+
+        .profile-image-container {
+            margin-bottom: 30px;
+            opacity: 0;
+            transition: opacity 1s ease;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .profile-image-container.show {
+            opacity: 1;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            /* border-radius: 50%; <-- Remove this line */
+            object-fit: cover;
+            border: 2px solid #333333;
+            transition: all 0.3s ease;
+        }
+
+        .profile-image:hover {
+            border-color: #666666;
+            transform: scale(1.05);
+        }
+
+        .profile-blurb {
+            max-width: 400px;
+            font-size: 1rem;
+            color: #aaaaaa;
+            font-weight: 300;
+            line-height: 1.6;
+            margin: 0 auto 20px auto;
+            opacity: 0;
+            transition: opacity 1s ease;
+            text-align: center;
+        }
+
+        .profile-blurb.show {
+            opacity: 1;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #888888;
+            opacity: 0;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .subtitle.show {
+            opacity: 1;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .scroll-indicator.show {
+            opacity: 1;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator:hover {
+            opacity: 0.7;
+        }
+
+        .scroll-text {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: #666666;
+            text-align: center;
+        }
+
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid #666666;
+            border-bottom: 2px solid #666666;
+            transform: rotate(45deg);
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .sections-container {
+            min-height: 100vh;
+            padding: 80px 40px;
+            opacity: 0;
+            transition: opacity 1s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sections-container.show {
+            opacity: 1;
+        }
+
+        .sections-grid {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 40px;
+            min-height: 80vh;
+        }
+
+        .section-card {
+            background: #111111;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .section-card:hover::before {
+            left: 100%;
+        }
+
+        .section-card:hover {
+            background: #1a1a1a;
+            border-color: #555555;
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .section-description {
+            font-size: 0.9rem;
+            color: #888888;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .content-section {
+            display: none;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 1px solid #333333;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+        }
+
+        .back-btn:hover {
+            background: #222222;
+            border-color: #555555;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1rem;
+            color: #888888;
+            font-weight: 300;
+        }
+
+        .post-form {
+            background: #111111;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 0 auto 40px auto;
+            max-width: 600px;
+        }
+
+        .post-form h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 400;
+            color: #cccccc;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333333;
+            border-radius: 4px;
+            font-size: 14px;
+            background: #000000;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #666666;
+        }
+
+        .btn {
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .btn:hover {
+            background: #cccccc;
+        }
+
+        .posts-container {
+            display: grid;
+            gap: 25px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-card {
+            background: #111111;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .post-card:hover {
+            background: #1a1a1a;
+            border-color: #555555;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .post-category {
+            background: #ffffff;
+            color: #000000;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .post-date {
+            color: #888888;
+            font-size: 0.8rem;
+        }
+
+        .post-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .post-content {
+            color: #cccccc;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .delete-btn {
+            background: transparent;
+            border: 1px solid #666666;
+            color: #888888;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background: #333333;
+            color: #ffffff;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666666;
+        }
+
+        .empty-state h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        @media (max-width: 968px) {
+            .sections-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 30px;
+            }
+            
+            .typewriter {
+                font-size: 4rem;
+            }
+            
+            .sections-container {
+                padding: 60px 20px;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile-blurb {
+                max-width: 350px;
+                font-size: 0.9rem;
+            }
+
+            .post-form {
+                margin: 0 20px 40px 20px;
+            }
+
+            .posts-container {
+                margin: 0 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .sections-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
+                gap: 20px;
+            }
+            
+            .typewriter {
+                font-size: 3rem;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+            
+            .sections-container {
+                padding: 40px 15px;
+            }
+
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-blurb {
+                max-width: 300px;
+                font-size: 0.85rem;
+            }
+
+            .post-form {
+                margin: 0 10px 40px 10px;
+                padding: 20px;
+            }
+
+            .posts-container {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-section" id="landing">
+        <div class="typewriter-container">
+            <h1 class="typewriter" id="name"> eric lee</h1>
+            
+            <div class="profile-image-container" id="profileContainer">
+                <img src="https://www.popsci.com/wp-content/uploads/2019/03/18/U5B2SGJAQ25WMDO6UVYGCLHROA.jpg" alt="Eric Lee" class="profile-image">
+            </div>
+            <div class="profile-blurb" id="profileBlurb">
+                student @ fair lawn high school, nj. passionate about mathematics, research, business, and education. 
+            </div>
+            
+            <p class="subtitle" id="subtitle">turtles are fire</p>
+        </div>
+        
+        <div class="scroll-indicator" id="scrollIndicator" onclick="scrollToSections()">
+            <div class="scroll-text">explore</div>
+            <div class="scroll-arrow"></div>
+        </div>
+    </div>
+
+    <div class="sections-container" id="sectionsContainer">
+        <div class="sections-grid">
+            <div class="section-card" onclick="showSection('academics')">
+                <h3 class="section-title">academics</h3>
+                <p class="section-description">research, papers, coursework, and intellectual pursuits</p>
+            </div>
+            
+            <div class="section-card" onclick="showSection('projects')">
+                <h3 class="section-title">projects</h3>
+                <p class="section-description">building, coding, designing, and creating</p>
+            </div>
+            
+            <div class="section-card" onclick="showSection('life-updates')">
+                <h3 class="section-title">life updates</h3>
+                <p class="section-description">personal milestones, experiences, and reflections</p>
+            </div>
+            
+            <div class="section-card" onclick="showSection('progress')">
+                <h3 class="section-title">progress</h3>
+                <p class="section-description">goals, achievements, and continuous improvement</p>
+            </div>
+            
+            <div class="section-card" onclick="showSection('interests')">
+                <h3 class="section-title">interests</h3>
+                <p class="section-description">hobbies, passions, and things that inspire you</p>
+            </div>
+            
+            <div class="section-card" onclick="showSection('business')">
+                <h3 class="section-title">business</h3>
+                <p class="section-description">ventures, ideas, networking, and professional growth</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Sections (same structure for all 6) -->
+    <div id="academics" class="content-section">
+        <button class="back-btn" onclick="backToGrid()">← back to sections</button>
+        
+        <div class="section-header">
+            <h2>academic journey</h2>
+            <p>research, papers, coursework, and intellectual pursuits</p>
+        </div>
+        
+        <div class="post-form">
+            <h3>share your academic work</h3>
+            <form onsubmit="addPost(event, 'academics')">
+                <div class="form-group">
+                    <label>title</label>
+                    <input type="text" name="title" placeholder="e.g., machine learning research paper" required>
+                </div>
+                <div class="form-group">
+                    <label>type</label>
+                    <select name="category">
+                        <option value="research">research</option>
+                        <option value="coursework">coursework</option>
+                        <option value="publication">publication</option>
+                        <option value="presentation">presentation</option>
+                        <option value="conference">conference</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>content</label>
+                    <textarea name="content" rows="4" placeholder="describe your academic work, findings, or thoughts..." required></textarea>
+                </div>
+                <button type="submit" class="btn">add academic post</button>
+            </form>
+        </div>
+        
+        <div class="posts-container" id="academics-posts">
+            <div class="empty-state">
+                <h3>no academic posts yet</h3>
+                <p>start documenting your academic journey above</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects" class="content-section">
+        <button class="back-btn" onclick="backToGrid()">← back to sections</button>
+        
+        <div class="section-header">
+            <h2>projects & creations</h2>
+            <p>building, coding, designing, and creating</p>
+        </div>
+        
+        <div class="post-form">
+            <h3>showcase your projects</h3>
+            <form onsubmit="addPost(event, 'projects')">
+                <div class="form-group">
+                    <label>project name</label>
+                    <input type="text" name="title" placeholder="e.g., personal finance app" required>
+                </div>
+                <div class="form-group">
+                    <label>project type</label>
+                    <select name="category">
+                        <option value="web app">web app</option>
+                        <option value="mobile app">mobile app</option>
+                        <option value="data science">data science</option>
+                        <option value="design">design</option>
+                        <option value="hardware">hardware</option>
+                        <option value="other">other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>description</label>
+                    <textarea name="content" rows="4" placeholder="describe your project, tech stack, challenges, and outcomes..." required></textarea>
+                </div>
+                <button type="submit" class="btn">add project</button>
+            </form>
+        </div>
+        
+        <div class="posts-container" id="projects-posts">
+            <div class="empty-state">
+                <h3>no projects yet</h3>
+                <p>start showcasing your amazing projects</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="life-updates" class="content-section">
+        <button class="back-btn" onclick="backToGrid()">← back to sections</button>
+        
+        <div class="section-header">
+            <h2>life updates</h2>
+            <p>personal milestones, experiences, and reflections</p>
+        </div>
+        
+        <div class="post-form">
+            <h3>share life moments</h3>
+            <form onsubmit="addPost(event, 'life-updates')">
+                <div class="form-group">
+                    <label>what's happening?</label>
+                    <input type="text" name="title" placeholder="e.g., graduated from university" required>
+                </div>
+                <div class="form-group">
+                    <label>category</label>
+                    <select name="category">
+                        <option value="milestone">milestone</option>
+                        <option value="travel">travel</option>
+                        <option value="achievement">achievement</option>
+                        <option value="reflection">reflection</option>
+                        <option value="experience">experience</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>share your story</label>
+                    <textarea name="content" rows="4" placeholder="tell us about this moment in your life..." required></textarea>
+                </div>
+                <button type="submit" class="btn">share update</button>
+            </form>
+        </div>
+        
+        <div class="posts-container" id="life-updates-posts">
+            <div class="empty-state">
+                <h3>no life updates yet</h3>
+                <p>start sharing your journey</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="progress" class="content-section">
+        <button class="back-btn" onclick="backToGrid()">← back to sections</button>
+        
+        <div class="section-header">
+            <h2>progress tracking</h2>
+            <p>goals, achievements, and continuous improvement</p>
+        </div>
+        
+        <div class="post-form">
+            <h3>track your progress</h3>
+            <form onsubmit="addPost(event, 'progress')">
+                <div class="form-group">
+                    <label>goal/objective</label>
+                    <input type="text" name="title" placeholder="e.g., learn python programming" required>
+                </div>
+                <div class="form-group">
+                    <label>progress type</label>
+                    <select name="category">
+                        <option value="learning">learning</option>
+                        <option value="fitness">fitness</option>
+                        <option value="career">career</option>
+                        <option value="skill">skill</option>
+                        <option value="habit">habit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>progress update</label>
+                    <textarea name="content" rows="4" placeholder="what have you accomplished? what are your next steps?" required></textarea>
+                </div>
+                <button type="submit" class="btn">log progress</button>
+            </form>
+        </div>
+        
+        <div class="posts-container" id="progress-posts">
+            <div class="empty-state">
+                <h3>no progress updates yet</h3>
+                <p>start tracking your journey to success</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="interests" class="content-section">
+        <button class="back-btn" onclick="backToGrid()">← back to sections</button>
+        
+        <div class="section-header">
+            <h2>personal interests</h2>
+            <p>hobbies, passions, and things that inspire you</p>
+        </div>
+        
+        <div class="post-form">
+            <h3>share your interests</h3>
+            <form onsubmit="addPost(event, 'interests')">
+                <div class="form-group">
+                    <label>interest/hobby</label>
+                    <input type="text" name="title" placeholder="e.g., photography adventures" required>
+                </div>
+                <div class="form-group">
+                    <label>category</label>
+                    <select name="category">
+                        <option value="hobby">hobby</option>
+                        <option value="sport">sport</option>
+                        <option value="art">art</option>
+                        <option value="music">music</option>
+                        <option value="reading">reading</option>
+                        <option value="gaming">gaming</option>
+                        <option value="other">other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>tell us about it</label>
+                    <textarea name="content" rows="4" placeholder="what do you love about this interest? any recent experiences?" required></textarea>
+                </div>
+                <button type="submit" class="btn">share interest</button>
+            </form>
+        </div>
+        
+        <div class="posts-container" id="interests-posts">
+            <div class="empty-state">
+                <h3>no interests shared yet</h3>
+                <p>tell us what you're passionate about</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="business" class="content-section">
+        <button class="back-btn" onclick="backToGrid()">← back to sections</button>
+        
+        <div class="section-header">
+            <h2>business & entrepreneurship</h2>
+            <p>ventures, ideas, networking, and professional growth</p>
+        </div>
+        
+        <div class="post-form">
+            <h3>business updates</h3>
+            <form onsubmit="addPost(event, 'business')">
+                <div class="form-group">
+                    <label>business topic</label>
+                    <input type="text" name="title" placeholder="e.g., launched new saas product" required>
+                </div>
+                <div class="form-group">
+                    <label>type</label>
+                    <select name="category">
+                        <option value="startup">startup</option>
+                        <option value="investment">investment</option>
+                        <option value="networking">networking</option>
+                        <option value="strategy">strategy</option>
+                        <option value="marketing">marketing</option>
+                        <option value="finance">finance</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>details</label>
+                    <textarea name="content" rows="4" placeholder="share your business insights, experiences, or updates..." required></textarea>
+                </div>
+                <button type="submit" class="btn">add business post</button>
+            </form>
+        </div>
+        
+        <div class="posts-container" id="business-posts">
+            <div class="empty-state">
+                <h3>no business posts yet</h3>
+                <p>start sharing your entrepreneurial journey</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Store posts in memory
+        let posts = {
+            academics: [],
+            projects: [],
+            'life-updates': [],
+            progress: [],
+            interests: [],
+            business: []
+        };
+
+        // Typewriter effect
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            element.classList.add('show');
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    // Add blinking cursor effect after typing is complete
+                    element.innerHTML += '<span style="animation: blink 1s infinite;">|</span>';
+                }
+            }
+            
+            // Parse HTML entities before typing
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = text;
+            const parsedText = tempDiv.textContent || tempDiv.innerText || '';
+            
+            function typeWithParsing() {
+                if (i < parsedText.length) {
+                    element.innerHTML += parsedText.charAt(i);
+                    i++;
+                    setTimeout(typeWithParsing, speed);
+                } else {
+                    element.innerHTML += '<span style="animation: blink 1s infinite;">|</span>';
+                }
+            }
+            
+            typeWithParsing();
+        }
+        // Initialize typewriter effect on page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                typeWriter(document.getElementById('name'), '&nbsp;eric lee', 120);
+            }, 500);
+            
+            setTimeout(() => {
+                document.getElementById('profileContainer').classList.add('show');
+            }, 2500);
+            
+            setTimeout(() => {
+                document.getElementById('profileBlurb').classList.add('show');
+            }, 3200);
+            
+            setTimeout(() => {
+                document.getElementById('subtitle').classList.add('show');
+            }, 3900);
+            
+            setTimeout(() => {
+                document.getElementById('scrollIndicator').classList.add('show');
+            }, 4600);
+        });
+
+        function scrollToSections() {
+            document.getElementById('sectionsContainer').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+            
+            setTimeout(() => {
+                document.getElementById('sectionsContainer').classList.add('show');
+            }, 500);
+        }
+
+        function showSection(sectionId) {
+            // Hide sections grid
+            document.getElementById('sectionsContainer').style.display = 'none';
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function backToGrid() {
+            // Hide all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show sections grid
+            const sectionsContainer = document.getElementById('sectionsContainer');
+            sectionsContainer.style.display = 'flex';
+            sectionsContainer.classList.add('show');
+        }
+
+        function addPost(event, section) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            const post = {
+                id: Date.now(),
+                title: formData.get('title'),
+                category: formData.get('category'),
+                content: formData.get('content'),
+                date: new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }).toLowerCase()
+            };
+            
+            posts[section].unshift(post);
+            renderPosts(section);
+            form.reset();
+        }
+
+        function deletePost(section, postId) {
+            posts[section] = posts[section].filter(post => post.id !== postId);
+            renderPosts(section);
+        }
+
+        function renderPosts(section) {
+            const container = document.getElementById(`${section}-posts`);
+            
+            if (posts[section].length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <h3>no posts yet</h3>
+                        <p>
+                        <p>start sharing your content above</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = posts[section].map(post => `
+                <div class="post-card">
+                    <div class="post-meta">
+                        <span class="post-category">${post.category}</span>
+                        <span class="post-date">${post.date}</span>
+                        <button class="delete-btn" onclick="deletePost('${section}', ${post.id})">delete</button>
+                    </div>
+                    <h3 class="post-title">${post.title}</h3>
+                    <div class="post-content">${post.content}</div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize empty posts display
+        Object.keys(posts).forEach(section => {
+            renderPosts(section);
+        });
+
+        // Smooth scrolling observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        observer.observe(document.getElementById('sectionsContainer'));
+    </script>
+</body>
+</html>
