@@ -19,7 +19,6 @@
             color: #fff;
             min-height: 100vh;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
         /* Landing Section */
@@ -440,26 +439,7 @@
             createObserver();
         });
 
-        // Smooth scrolling for better UX
-        document.addEventListener('DOMContentLoaded', function() {
-            const scrollIndicator = document.querySelector('.scroll-indicator');
-            if (scrollIndicator) {
-                scrollIndicator.addEventListener('click', function() {
-                    document.getElementById('resources').scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            }
-        });
-
-        // Add subtle parallax effect to landing section
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const landing = document.getElementById('landing');
-            if (landing && scrolled < window.innerHeight) {
-                landing.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
+        // Remove parallax effect to prevent text overlap issues
     </script>
 </body>
 </html>
