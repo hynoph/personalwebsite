@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eric lee</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .landing-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .typewriter-container {
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .typewriter {
+            font-size: 5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            opacity: 0;
+            font-family: 'Roboto Mono', monospace;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .typewriter.show {
+            opacity: 1;
+        }
+
+        .profile-image-container {
+            margin-bottom: 30px;
+            opacity: 0;
+            transition: opacity 1s ease;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .profile-image-container.show {
+            opacity: 1;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 2px solid #333333;
+            transition: all 0.3s ease;
+        }
+
+        .profile-image:hover {
+            border-color: #666666;
+            transform: scale(1.05);
+        }
+
+        .profile-blurb {
+            max-width: 400px;
+            font-size: 1rem;
+            color: #aaaaaa;
+            font-weight: 300;
+            line-height: 1.6;
+            margin: 0 auto 20px auto;
+            opacity: 0;
+            transition: opacity 1s ease;
+            text-align: center;
+        }
+
+        .profile-blurb.show {
+            opacity: 1;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #888888;
+            opacity: 0;
+            text-align: center;
+        }
+
+        .subtitle.show {
+            opacity: 1;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-section" id="landing">
+        <div class="typewriter-container">
+            <h1 class="typewriter" id="name">eric lee</h1>
+            
+            <div class="profile-image-container" id="profileContainer">
+                <img src="https://www.popsci.com/wp-content/uploads/2019/03/18/U5B2SGJAQ25WMDO6UVYGCLHROA.jpg" alt="Eric Lee" class="profile-image">
+            </div>
+            <div class="profile-blurb" id="profileBlurb">
+                student @ fair lawn high school, nj. passionate about mathematics, research, business, and education. 
+            </div>
+            
+            <p class="subtitle" id="subtitle">turtles are fire</p>
+        </div>
+    </div>
+
+    <script>
+        // Typewriter effect
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            element.classList.add('show');
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    element.innerHTML += '<span style="animation: blink 1s infinite;">|</span>';
+                }
+            }
+            
+            // Parse HTML entities before typing
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = text;
+            const parsedText = tempDiv.textContent || tempDiv.innerText || '';
+            
+            function typeWithParsing() {
+                if (i < parsedText.length) {
+                    element.innerHTML += parsedText.charAt(i);
+                    i++;
+                    setTimeout(typeWithParsing, speed);
+                } else {
+                    element.innerHTML += '<span style="animation: blink 1s infinite;">|</span>';
+                }
+            }
+            
+            typeWithParsing();
+        }
+
+        // Initialize typewriter and fade-ins
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                typeWriter(document.getElementById('name'), 'eric lee', 120);
+            }, 500);
+            
+            setTimeout(() => {
+                document.getElementById('profileContainer').classList.add('show');
+            }, 2500);
+            
+            setTimeout(() => {
+                document.getElementById('profileBlurb').classList.add('show');
+            }, 3200);
+            
+            setTimeout(() => {
+                document.getElementById('subtitle').classList.add('show');
+            }, 3900);
+        });
+    </script>
+</body>
+</html>
