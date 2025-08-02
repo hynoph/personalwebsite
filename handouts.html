@@ -1,13 +1,12 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>handouts - eric lee</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -213,7 +212,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
             transition: left 0.5s ease;
         }
 
@@ -225,7 +224,7 @@
             border-color: #555;
             background: #151515;
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         .handout-header {
@@ -366,6 +365,12 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             z-index: 3;
+        }
+
+        /* Template Cards Style */
+        .template-card {
+            border: 1px dashed #555 !important;
+            opacity: 0.8;
         }
 
         /* Statistics Section */
@@ -572,7 +577,7 @@
         <!-- Search Section -->
         <section class="search-section">
             <div class="search-container">
-                <input type="text" class="search-input" placeholder="search handouts..." id="searchInput">
+                <input type="text" class="search-input" placeholder="search handouts..." id="searchInput" />
                 <span class="search-icon">🔍</span>
             </div>
         </section>
@@ -692,1016 +697,75 @@
                         </a>
                     </div>
                 </article>
-            </div>
-        </section>
 
-        <!-- Calculus Section -->
-        <section class="handouts-category" data-category="calculus">
-            <h2 class="category-title">
-                <span class="category-icon">∫</span>
-                calculus
-            </h2>
-            <div class="handouts-grid">
-                <article class="handout-card">
+                <!-- Template Cards -->
+                <article class="handout-card template-card">
                     <div class="handout-header">
-                        <h3 class="handout-title">derivatives cheat sheet</h3>
-                        <span class="handout-type type-reference">reference</span>
+                        <h3 class="handout-title">Template: Algebra New Guide</h3>
+                        <span class="handout-type type-guide">guide template</span>
                     </div>
                     <div class="handout-meta">
-                        <span class="meta-item">📄 4 pages</span>
-                        <span class="meta-item">⏱️ jan 2025</span>
-                        <span class="meta-item">⭐ 4.8/5</span>
+                        <span class="meta-item">📄 TBD pages</span>
+                        <span class="meta-item">⏱️ upcoming</span>
+                        <span class="meta-item">📊 all levels</span>
                     </div>
                     <p class="handout-description">
-                        essential derivative rules and formulas with examples, including power rule, product rule, quotient rule, and chain rule.
+                        This is a placeholder template for a new algebra study guide. Edit to add your content.
                     </p>
                     <div class="handout-topics">
-                        <span class="topic-tag">power rule</span>
-                        <span class="topic-tag">chain rule</span>
-                        <span class="topic-tag">product rule</span>
+                        <span class="topic-tag">template</span>
+                        <span class="topic-tag">algebra</span>
                     </div>
                     <div class="handout-actions">
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">📥</span>
-                            download
-                        </a>
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">📱</span>
-                            mobile version
-                        </a>
+                        <a href="#" class="handout-action">download</a>
+                        <a href="#" class="handout-action">preview</a>
                     </div>
                 </article>
 
-                <article class="handout-card">
+                <article class="handout-card template-card">
                     <div class="handout-header">
-                        <h3 class="handout-title">integration techniques practice</h3>
-                        <span class="handout-type type-practice">practice</span>
+                        <h3 class="handout-title">Template: Algebra Practice Set</h3>
+                        <span class="handout-type type-practice">practice template</span>
                     </div>
                     <div class="handout-meta">
-                        <span class="meta-item">📄 15 pages</span>
-                        <span class="meta-item">⏱️ dec 2024</span>
-                        <span class="meta-item">📊 advanced</span>
-                    </div>
-                    <p class="handout-description">
-                        extensive practice problems covering u-substitution, integration by parts, partial fractions, and trigonometric integration.
-                    </p>
-                    <div class="handout-topics">
-                        <span class="topic-tag">u-substitution</span>
-                        <span class="topic-tag">by parts</span>
-                        <span class="topic-tag">partial fractions</span>
-                    </div>
-                    <div class="handout-actions">
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">📥</span>
-                            download
-                        </a>
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">💡</span>
-                            hints
-                        </a>
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">✔️</span>
-                            solutions
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Geometry Section -->
-        <section class="handouts-category" data-category="geometry">
-            <h2 class="category-title">
-                <span class="category-icon">📐</span>
-                geometry
-            </h2>
-            <div class="handouts-grid">
-                <article class="handout-card">
-                    <div class="handout-header">
-                        <h3 class="handout-title">triangle properties and proofs</h3>
-                        <span class="handout-type type-notes">class notes</span>
-                    </div>
-                    <div class="handout-meta">
-                        <span class="meta-item">📄 10 pages</span>
-                        <span class="meta-item">⏱️ nov 2024</span>
-                        <span class="meta-item">📊 intermediate</span>
-                    </div>
-                    <p class="handout-description">
-                        comprehensive notes on triangle properties, congruence theorems, similarity, and geometric proofs with visual diagrams.
-                    </p>
-                    <div class="handout-topics">
-                        <span class="topic-tag">congruence</span>
-                        <span class="topic-tag">similarity</span>
-                        <span class="topic-tag">proofs</span>
-                    </div>
-                    <div class="handout-actions">
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">📥</span>
-                            download
-                        </a>
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">🎯</span>
-                            practice problems
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Statistics Section -->
-        <section class="stats-section">
-            <h2 class="stats-title">handout statistics</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">35+</span>
-                    <span class="stat-label">handouts</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">500+</span>
-                    <span class="stat-label">downloads</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">4.8</span>
-                    <span class="stat-label">avg rating</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">8</span>
-                    <span class="stat-label">subjects</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Request Section -->
-        <section class="request-section">
-            <h2 class="request-title">request a handout</h2>
-            <p class="request-text">
-                need study materials for a specific topic? let me know what you're looking for and i'll create it.
-            </p>
-            <form class="request-form">
-                <input type="text" class="request-input" placeholder="topic or subject..." required>
-                <button type="submit" class="request-btn">submit request</button>
-            </form>
-        </section>
-    </main>
-
-    <script>
-        // Filter functionality
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const categories = document.querySelectorAll('.handouts-category');
-        const searchInput = document.getElementById('searchInput');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Update active button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-
-                const filterValue = button.getAttribute('data-filter');
-                filterContent(filterValue);
-            });
-        });
-
-        function filterContent(filterValue) {
-            categories.forEach(category => {
-                const categoryType = category.getAttribute('data-category');
-                
-                if (filterValue === 'all' || categoryType === filterValue) {
-                    category.style.display = 'block';
-                    setTimeout(() => {
-                        category.classList.add('show');
-                    }, 100);
-                } else {
-                    category.classList.remove('show');
-                    setTimeout(() => {
-                        category.style.display = 'none';
-                    }, 300);
-                }
-            });
-        }
-
-        // Search functionality
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const handoutCards = document.querySelectorAll('.handout-card');
-            
-            handoutCards.forEach(card => {
-                const title = card.querySelector('.handout-title').textContent.toLowerCase();
-                const description = card.querySelector('.handout-description').textContent.toLowerCase();
-                const topics = Array.from(card.querySelectorAll('.topic-tag')).map(tag => tag.textContent.toLowerCase());
-                
-                const matchesSearch = title.includes(searchTerm) || 
-                                    description.includes(searchTerm) || 
-                                    topics.some(topic => topic.includes(searchTerm));
-                
-                const category = card.closest('.handouts-category');
-                if (matchesSearch) {
-                    card.style.display = 'block';
-                    category.style.display = 'block';
-                    category.classList.add('show');
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            // Hide empty categories
-            categories.forEach(category => {
-                const visibleCards = category.querySelectorAll('.handout-card[style*="display: block"], .handout-card:not([style*="display: none"])');
-                if (visibleCards.length === 0 && searchTerm !== '') {
-                    category.style.display = 'none';
-                }
-            });
-        });
-
-        // Intersection Observer for categories
-        function createObserver() {
-            const options = {
-                threshold: 0.2,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('show');
-                    }
-                });
-            }, options);
-
-            categories.forEach(category => {
-                observer.observe(category);
-            });
-        }
-
-        // Counter animation for stats
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            
-            counters.forEach(counter => {
-                const target = counter.textContent;
-                const isDecimal = target.includes('.');
-                
-                if (isDecimal) {
-                    // Handle decimal numbers like 4.8
-                    const numericValue = parseFloat(target);
-                    let current = 0;
-                    const increment = numericValue / 30;
-                    
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= numericValue) {
-                            counter.textContent = target;
-                            clearInterval(timer);
-                        } else {
-                            counter.textContent = current.toFixed(1);
-                        }
-                    }, 50);
-                } else {
-                    // Handle regular numbers
-                    const numericValue = parseInt(target.replace(/\D/g, ''));
-                    const suffix = target.replace(/\d/g, '');
-                    let current = 0;
-                    const increment = numericValue / 30;
-                    
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= numericValue) {
-                            counter.textContent = target;
-                            clearInterval(timer);
-                        } else {
-                            counter.textContent = Math.floor(current) + suffix;
-                        }
-                    }, 50);
-                }
-            });
-        }
-
-        // Form submission handler
-        document.querySelector('.request-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const input = this.querySelector('.request-input');
-            const btn = this.querySelector('.request-btn');
-            
-            // Simple feedback animation
-            btn.textContent = 'submitted!';
-            btn.style.background = '#4ade80';
-            input.value = '';
-            
-            setTimeout(() => {
-                btn.textContent = 'submit request';
-                btn.style.background = '#333';
-            }, 2000);
-        });
-
-        // Initialize everything
-        document.addEventListener('DOMContentLoaded', function() {
-            createObserver();
-            
-            // Animate stats when they come into view
-            const statsSection = document.querySelector('.stats-section');
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        statsObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            if (statsSection) {
-                statsObserver.observe(statsSection);
-            }
-        });
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>handouts - eric lee</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto Mono', monospace;
-            background: #000;
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Header */
-        .header {
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 1px solid #333;
-            background: #000;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-
-        .back-link {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #888;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: #fff;
-        }
-
-        .page-title {
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .page-subtitle {
-            color: #888;
-            font-size: 1rem;
-            font-weight: 300;
-        }
-
-        /* Main Content */
-        .main-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        /* Introduction Section */
-        .intro-section {
-            margin-bottom: 80px;
-            text-align: center;
-        }
-
-        .intro-text {
-            font-size: 1.1rem;
-            color: #aaa;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        /* Search Section */
-        .search-section {
-            margin-bottom: 50px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .search-container {
-            position: relative;
-            max-width: 400px;
-            width: 100%;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 15px 20px 15px 50px;
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 25px;
-            color: #fff;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            border-color: #555;
-            background: #151515;
-        }
-
-        .search-input::placeholder {
-            color: #666;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666;
-            font-size: 1rem;
-        }
-
-        /* Filter Buttons */
-        .filter-section {
-            margin-bottom: 60px;
-            text-align: center;
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: #111;
-            border: 1px solid #333;
-            color: #888;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.9rem;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: #222;
-            border-color: #555;
-            color: #fff;
-        }
-
-        /* Handouts Categories */
-        .handouts-category {
-            margin-bottom: 80px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .handouts-category.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .category-title {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: #fff;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .category-icon {
-            font-size: 1.5rem;
-        }
-
-        /* Handouts Grid */
-        .handouts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .handout-card {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .handout-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .handout-card:hover::before {
-            left: 100%;
-        }
-
-        .handout-card:hover {
-            border-color: #555;
-            background: #151515;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-        }
-
-        .handout-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            gap: 15px;
-        }
-
-        .handout-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #fff;
-            flex: 1;
-        }
-
-        .handout-type {
-            background: #222;
-            color: #888;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-        }
-
-        .type-notes {
-            background: #1a3a4a;
-            color: #60a5fa;
-        }
-
-        .type-worksheet {
-            background: #4a1a3a;
-            color: #f472b6;
-        }
-
-        .type-guide {
-            background: #3a4a1a;
-            color: #a3e635;
-        }
-
-        .type-reference {
-            background: #4a3a1a;
-            color: #fbbf24;
-        }
-
-        .type-practice {
-            background: #3a1a4a;
-            color: #c084fc;
-        }
-
-        .handout-meta {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-            color: #666;
-            font-size: 0.85rem;
-            flex-wrap: wrap;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .handout-description {
-            color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .handout-topics {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .topic-tag {
-            background: #1a1a1a;
-            color: #ccc;
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            border: 1px solid #333;
-        }
-
-        .handout-actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .handout-action {
-            color: #888;
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 8px 16px;
-            border: 1px solid #333;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .handout-action:hover {
-            color: #fff;
-            border-color: #555;
-            background: #222;
-        }
-
-        .action-icon {
-            font-size: 0.8rem;
-        }
-
-        /* Featured Handout */
-        .featured-handout {
-            background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
-            border: 2px solid #444;
-            position: relative;
-        }
-
-        .featured-badge {
-            position: absolute;
-            top: -10px;
-            right: 20px;
-            background: #a3e635;
-            color: #000;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 3;
-        }
-
-        /* Statistics Section */
-        .stats-section {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .stats-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: #fff;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 30px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #fff;
-            display: block;
-        }
-
-        .stat-label {
-            color: #888;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Request Section */
-        .request-section {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .request-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .request-text {
-            color: #aaa;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .request-form {
-            max-width: 400px;
-            margin: 0 auto;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .request-input {
-            flex: 1;
-            min-width: 200px;
-            padding: 12px 16px;
-            background: #222;
-            border: 1px solid #333;
-            border-radius: 8px;
-            color: #fff;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.9rem;
-            outline: none;
-        }
-
-        .request-input:focus {
-            border-color: #555;
-        }
-
-        .request-btn {
-            padding: 12px 24px;
-            background: #333;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .request-btn:hover {
-            background: #444;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .page-title {
-                font-size: 2.2rem;
-            }
-
-            .back-link {
-                position: static;
-                display: block;
-                margin-bottom: 20px;
-                transform: none;
-            }
-
-            .header {
-                padding: 30px 15px;
-            }
-
-            .main-content {
-                padding: 60px 15px;
-            }
-
-            .category-title {
-                font-size: 1.6rem;
-            }
-
-            .handouts-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .handout-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            .filter-buttons {
-                gap: 10px;
-            }
-
-            .filter-btn {
-                padding: 8px 16px;
-                font-size: 0.85rem;
-            }
-
-            .request-form {
-                flex-direction: column;
-            }
-
-            .request-input {
-                min-width: auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .page-title {
-                font-size: 1.8rem;
-            }
-
-            .handout-card {
-                padding: 20px;
-            }
-
-            .handout-title {
-                font-size: 1.1rem;
-            }
-
-            .category-title {
-                font-size: 1.4rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <a href="index.html" class="back-link">← back to home</a>
-        <h1 class="page-title">handouts</h1>
-        <p class="page-subtitle">educational materials, study guides, and teaching resources</p>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Introduction -->
-        <section class="intro-section">
-            <p class="intro-text">
-                comprehensive collection of study materials, practice problems, and educational resources designed to enhance learning in mathematics and related subjects.
-            </p>
-        </section>
-
-        <!-- Search Section -->
-        <section class="search-section">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="search handouts..." id="searchInput">
-                <span class="search-icon">🔍</span>
-            </div>
-        </section>
-
-        <!-- Filter Section -->
-        <section class="filter-section">
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">all materials</button>
-                <button class="filter-btn" data-filter="algebra">algebra</button>
-                <button class="filter-btn" data-filter="calculus">calculus</button>
-                <button class="filter-btn" data-filter="geometry">geometry</button>
-                <button class="filter-btn" data-filter="statistics">statistics</button>
-                <button class="filter-btn" data-filter="general">general</button>
-            </div>
-        </section>
-
-        <!-- Algebra Section -->
-        <section class="handouts-category" data-category="algebra">
-            <h2 class="category-title">
-                <span class="category-icon">📐</span>
-                algebra
-            </h2>
-            <div class="handouts-grid">
-                <!-- Featured Handout -->
-                <article class="handout-card featured-handout">
-                    <div class="featured-badge">popular</div>
-                    <div class="handout-header">
-                        <h3 class="handout-title">quadratic functions complete guide</h3>
-                        <span class="handout-type type-guide">study guide</span>
-                    </div>
-                    <div class="handout-meta">
-                        <span class="meta-item">📄 12 pages</span>
-                        <span class="meta-item">⏱️ updated: dec 2024</span>
-                        <span class="meta-item">⭐ 4.9/5</span>
-                    </div>
-                    <p class="handout-description">
-                        comprehensive guide covering quadratic functions, graphing techniques, vertex form, factoring, and real-world applications with step-by-step examples.
-                    </p>
-                    <div class="handout-topics">
-                        <span class="topic-tag">vertex form</span>
-                        <span class="topic-tag">factoring</span>
-                        <span class="topic-tag">graphing</span>
-                        <span class="topic-tag">applications</span>
-                    </div>
-                    <div class="handout-actions">
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">📥</span>
-                            download pdf
-                        </a>
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">👁️</span>
-                            preview
-                        </a>
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">🔗</span>
-                            solutions
-                        </a>
-                    </div>
-                </article>
-
-                <article class="handout-card">
-                    <div class="handout-header">
-                        <h3 class="handout-title">polynomial operations worksheet</h3>
-                        <span class="handout-type type-worksheet">worksheet</span>
-                    </div>
-                    <div class="handout-meta">
-                        <span class="meta-item">📄 8 pages</span>
-                        <span class="meta-item">⏱️ nov 2024</span>
-                        <span class="meta-item">📊 intermediate</span>
-                    </div>
-                    <p class="handout-description">
-                        practice problems covering addition, subtraction, multiplication, and division of polynomials with varying difficulty levels.
-                    </p>
-                    <div class="handout-topics">
-                        <span class="topic-tag">addition</span>
-                        <span class="topic-tag">multiplication</span>
-                        <span class="topic-tag">division</span>
-                    </div>
-                    <div class="handout-actions">
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">📥</span>
-                            download
-                        </a>
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">✔️</span>
-                            answer key
-                        </a>
-                    </div>
-                </article>
-
-                <article class="handout-card">
-                    <div class="handout-header">
-                        <h3 class="handout-title">systems of equations reference</h3>
-                        <span class="handout-type type-reference">reference</span>
-                    </div>
-                    <div class="handout-meta">
-                        <span class="meta-item">📄 6 pages</span>
-                        <span class="meta-item">⏱️ oct 2024</span>
+                        <span class="meta-item">📄 TBD pages</span>
+                        <span class="meta-item">⏱️ upcoming</span>
                         <span class="meta-item">📊 beginner</span>
                     </div>
                     <p class="handout-description">
-                        quick reference guide for solving systems of linear equations using substitution, elimination, and graphing methods.
+                        Placeholder for algebra practice problems template. Customize with exercises and solutions.
                     </p>
                     <div class="handout-topics">
-                        <span class="topic-tag">substitution</span>
-                        <span class="topic-tag">elimination</span>
-                        <span class="topic-tag">graphing</span>
+                        <span class="topic-tag">template</span>
+                        <span class="topic-tag">practice</span>
+                        <span class="topic-tag">algebra</span>
                     </div>
                     <div class="handout-actions">
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">📥</span>
-                            download
-                        </a>
-                        <a href="#" class="handout-action">
-                            <span class="action-icon">🎯</span>
-                            examples
-                        </a>
+                        <a href="#" class="handout-action">download</a>
+                        <a href="#" class="handout-action">answer key</a>
+                    </div>
+                </article>
+
+                <article class="handout-card template-card">
+                    <div class="handout-header">
+                        <h3 class="handout-title">Template: Algebra Quick Reference</h3>
+                        <span class="handout-type type-reference">reference template</span>
+                    </div>
+                    <div class="handout-meta">
+                        <span class="meta-item">📄 TBD pages</span>
+                        <span class="meta-item">⏱️ upcoming</span>
+                        <span class="meta-item">📊 intermediate</span>
+                    </div>
+                    <p class="handout-description">
+                        Quick reference template for algebra formulas and methods. Update with relevant notes.
+                    </p>
+                    <div class="handout-topics">
+                        <span class="topic-tag">template</span>
+                        <span class="topic-tag">reference</span>
+                    </div>
+                    <div class="handout-actions">
+                        <a href="#" class="handout-action">download</a>
+                        <a href="#" class="handout-action">examples</a>
                     </div>
                 </article>
             </div>
@@ -1777,6 +841,30 @@
                         </a>
                     </div>
                 </article>
+
+                <!-- Template Cards -->
+                <article class="handout-card template-card">
+                    <div class="handout-header">
+                        <h3 class="handout-title">Template: Calculus Quick Notes</h3>
+                        <span class="handout-type type-notes">notes template</span>
+                    </div>
+                    <div class="handout-meta">
+                        <span class="meta-item">📄 TBD pages</span>
+                        <span class="meta-item">⏱️ upcoming</span>
+                        <span class="meta-item">📊 beginner</span>
+                    </div>
+                    <p class="handout-description">
+                        Placeholder template for calculus quick notes. Customize with important formulas and concepts.
+                    </p>
+                    <div class="handout-topics">
+                        <span class="topic-tag">template</span>
+                        <span class="topic-tag">calculus</span>
+                    </div>
+                    <div class="handout-actions">
+                        <a href="#" class="handout-action">download</a>
+                        <a href="#" class="handout-action">preview</a>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -1816,6 +904,31 @@
                         </a>
                     </div>
                 </article>
+
+                <!-- Template Cards -->
+                <article class="handout-card template-card">
+                    <div class="handout-header">
+                        <h3 class="handout-title">Template: Geometry Practice</h3>
+                        <span class="handout-type type-practice">practice template</span>
+                    </div>
+                    <div class="handout-meta">
+                        <span class="meta-item">📄 TBD pages</span>
+                        <span class="meta-item">⏱️ upcoming</span>
+                        <span class="meta-item">📊 beginner</span>
+                    </div>
+                    <p class="handout-description">
+                        Placeholder for geometry practice problems template. Add exercises and answers here.
+                    </p>
+                    <div class="handout-topics">
+                        <span class="topic-tag">template</span>
+                        <span class="topic-tag">practice</span>
+                        <span class="topic-tag">geometry</span>
+                    </div>
+                    <div class="handout-actions">
+                        <a href="#" class="handout-action">download</a>
+                        <a href="#" class="handout-action">answer key</a>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -1849,7 +962,7 @@
                 need study materials for a specific topic? let me know what you're looking for and i'll create it.
             </p>
             <form class="request-form">
-                <input type="text" class="request-input" placeholder="topic or subject..." required>
+                <input type="text" class="request-input" placeholder="topic or subject..." required />
                 <button type="submit" class="request-btn">submit request</button>
             </form>
         </section>
@@ -1914,10 +1027,17 @@
                 }
             });
 
-            // Hide empty categories
+            // Hide empty categories unless they contain template cards
             categories.forEach(category => {
-                const visibleCards = category.querySelectorAll('.handout-card[style*="display: block"], .handout-card:not([style*="display: none"])');
-                if (visibleCards.length === 0 && searchTerm !== '') {
+                // Count visible non-template cards
+                const visibleNonTemplateCards = Array.from(category.querySelectorAll('.handout-card:not(.template-card)'))
+                    .filter(card => card.style.display !== 'none');
+                
+                // Count visible template cards
+                const visibleTemplateCards = Array.from(category.querySelectorAll('.handout-card.template-card'))
+                    .filter(card => card.style.display !== 'none');
+
+                if (visibleNonTemplateCards.length === 0 && visibleTemplateCards.length === 0 && searchTerm !== '') {
                     category.style.display = 'none';
                 }
             });
@@ -1971,7 +1091,7 @@
                     const numericValue = parseInt(target.replace(/\D/g, ''));
                     const suffix = target.replace(/\d/g, '');
                     let current = 0;
-                    const increment = numericValue / 30;
+                    const increment = Math.ceil(numericValue / 30);
                     
                     const timer = setInterval(() => {
                         current += increment;
@@ -1979,47 +1099,20 @@
                             counter.textContent = target;
                             clearInterval(timer);
                         } else {
-                            counter.textContent = Math.floor(current) + suffix;
+                            counter.textContent = current + suffix;
                         }
                     }, 50);
                 }
             });
         }
 
-        // Form submission handler
-        document.querySelector('.request-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const input = this.querySelector('.request-input');
-            const btn = this.querySelector('.request-btn');
-            
-            // Simple feedback animation
-            btn.textContent = 'submitted!';
-            btn.style.background = '#4ade80';
-            input.value = '';
-            
-            setTimeout(() => {
-                btn.textContent = 'submit request';
-                btn.style.background = '#333';
-            }, 2000);
+        // Initialize
+        window.addEventListener('load', () => {
+            filterContent('all');
+            createObserver();
+            animateCounters();
         });
 
-        // Initialize everything
-        document.addEventListener('DOMContentLoaded', function() {
-            createObserver();
-            
-            // Animate stats when they come into view
-            const statsSection = document.querySelector('.stats-section');
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        statsObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            if (statsSection) {
-                statsObserver.observe(statsSection);
-            }
-        });
->>>>>>> f7b8c51e97395a986566453100c66b1fba943df0
+    </script>
+</body>
+</html>
