@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -847,3 +848,854 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projects - eric lee</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            background: #000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            color: #888;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #aaa;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Filter Buttons */
+        .filter-section {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: #111;
+            border: 1px solid #333;
+            color: #888;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #222;
+            border-color: #555;
+            color: #fff;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .project-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .project-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            transition: left 0.5s ease;
+            z-index: 1;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            border-color: #555;
+            background: #151515;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fff;
+            flex: 1;
+        }
+
+        .project-category {
+            background: #222;
+            color: #888;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .category-web {
+            background: #1a3a4a;
+            color: #60a5fa;
+        }
+
+        .category-math {
+            background: #4a1a3a;
+            color: #f472b6;
+        }
+
+        .category-ml {
+            background: #3a4a1a;
+            color: #a3e635;
+        }
+
+        .category-game {
+            background: #4a3a1a;
+            color: #fbbf24;
+        }
+
+        .category-tool {
+            background: #3a1a4a;
+            color: #c084fc;
+        }
+
+        .project-description {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid #333;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border: 1px solid #333;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-link:hover {
+            color: #fff;
+            border-color: #555;
+            background: #222;
+        }
+
+        .link-icon {
+            font-size: 0.8rem;
+        }
+
+        /* Featured Project */
+        .featured-project {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+            border: 2px solid #444;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #fbbf24;
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 3;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            display: block;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid #333;
+        }
+
+        .contact-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-text {
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: #888;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 12px 24px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-link:hover {
+            color: #fff;
+            border-color: #555;
+            background: #111;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .back-link {
+                position: static;
+                display: block;
+                margin-bottom: 20px;
+                transform: none;
+            }
+
+            .header {
+                padding: 30px 15px;
+            }
+
+            .main-content {
+                padding: 60px 15px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .filter-buttons {
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .project-content {
+                padding: 20px;
+            }
+
+            .project-title {
+                font-size: 1.1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="back-link">← back to home</a>
+        <h1 class="page-title">projects</h1>
+        <p class="page-subtitle">coding projects, mathematical models, and creative endeavors</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Introduction -->
+        <section class="intro-section">
+            <p class="intro-text">
+                a collection of projects spanning web development, mathematical modeling, machine learning, and educational tools. each project represents a unique challenge and learning opportunity.
+            </p>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">all projects</button>
+                <button class="filter-btn" data-filter="web">web dev</button>
+                <button class="filter-btn" data-filter="math">mathematics</button>
+                <button class="filter-btn" data-filter="ml">machine learning</button>
+                <button class="filter-btn" data-filter="game">games</button>
+                <button class="filter-btn" data-filter="tool">tools</button>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-grid" id="projectsGrid">
+            <!-- Featured Project -->
+            <article class="project-card featured-project" data-category="web">
+                <div class="featured-badge">featured</div>
+                <div class="project-image">🌐</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">interactive calculus visualizer</h3>
+                        <span class="project-category category-web">web app</span>
+                    </div>
+                    <p class="project-description">
+                        a comprehensive web application that helps students visualize calculus concepts through interactive graphs and animations. features real-time function plotting, derivative visualization, and integral calculations with step-by-step explanations.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">javascript</span>
+                        <span class="tech-tag">d3.js</span>
+                        <span class="tech-tag">html5</span>
+                        <span class="tech-tag">css3</span>
+                        <span class="tech-tag">mathjs</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <span class="link-icon">🔗</span>
+                            live demo
+                        </a>
+                        <a href="#" class="project-link">
+                            <span class="link-icon">📁</span>
+                            source code
+                        </a>
+                        <a href="#" class="project-link">
+                            <span class="link-icon">📝</span>
+                            documentation
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Regular Projects -->
+            <article class="project-card" data-category="math">
+                <div class="project-image">📊</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">fibonacci sequence analyzer</h3>
+                        <span class="project-category category-math">mathematics</span>
+                    </div>
+                    <p class="project-description">
+                        exploring patterns in the fibonacci sequence through computational analysis and visualization. includes golden ratio approximations and spiral generation.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">python</span>
+                        <span class="tech-tag">matplotlib</span>
+                        <span class="tech-tag">numpy</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <span class="link-icon">📁</span>
+                            github
+                        </a>
+                        <a href="#" class="project-link">
+                            <span class="link-icon">📊</span>
+                            results
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="ml">
+                <div class="project-image">🤖</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">student performance predictor</h3>
+                        <span class="project-category category-ml">machine learning</span>
+                    </div>
+                    <p class="project-description">
+                        machine learning model that predicts student performance based on study habits, attendance, and assignment scores. built for educational insights.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">python</span>
+                        <span class="tech-tag">scikit-learn</span>
+                        <span class="tech-tag">pandas</span>
+                        <span class="tech-tag">tensorflow</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <span class="link-icon">📁</span>
+                            code
+                        </a>
+                        <a href="#" class="project-link">
+                            <span class="link-icon">📈</span>
+                            model
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="game">
+                <div class="project-image">🎮</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">math battle arena</h3>
+                        <span class="project-category category-game">game</span>
+                    </div>
+                    <p class="project-description">
+                        competitive math game where players solve increasingly difficult problems under time pressure. features multiplayer support and difficulty scaling.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">javascript</span>
+                        <span class="tech-tag">socket.io</span>
+                        <span class="tech-tag">node.js</span>
+                        <span class="tech-tag">html5 canvas</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <span class="link-icon">🎮</span>
+                            play now
+                        </a>
+                        <a href="#" class="project-link">
+                            <span class="link-icon">📁</span>
+                            source
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="web">
+                <div class="project-image">🌟</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">portfolio website</h3>
+                        <span class="project-category category-web">web dev</span>
+                    </div>
+                    <p class="project-description">
+                        responsive personal website showcasing projects and research. features dark mode, smooth animations, and clean typography.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">html5</span>
+                        <span class="tech-tag">css3</span>
+                        <span class="tech-tag">javascript</span>
+                        <span class="tech-tag">responsive design</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <span class="link-icon">🔗</span>
+                            live site
+                        </a>
+                        <a href="#" class="project-link">
+                            <span class="link-icon">📁</span>
+                            code
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="tool">
+                <div class="project-image">🔧</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">equation solver</h3>
+                        <span class="project-category category-tool">tool</span>
+                    </div>
+                    <p class="project-description">
+                        command-line tool for solving various types of mathematical equations with step-by-step solutions and graph plotting capabilities.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">python</span>
+                        <span class="tech-tag">sympy</span>
+                        <span class="tech-tag">click</span>
+                        <span class="tech-tag">matplotlib</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <span class="link-icon">⬇️</span>
+                            download
+                        </a>
+                        <a href="#" class="project-link">
+                            <span class="link-icon">📖</span>
+                            docs
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="math">
+                <div class="project-image">📐</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">geometry theorem prover</h3>
+                        <span class="project-category category-math">mathematics</span>
+                    </div>
+                    <p class="project-description">
+                        automated theorem proving system for basic geometric statements. uses coordinate geometry and algebraic methods for verification.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">python</span>
+                        <span class="tech-tag">sympy</span>
+                        <span class="tech-tag">computational geometry</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <span class="link-icon">📁</span>
+                            repository
+                        </a>
+                        <a href="#" class="project-link">
+                            <span class="link-icon">📄</span>
+                            paper
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">languages</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2k+</span>
+                    <span class="stat-label">lines of code</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">collaborations</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="contact-title">let's build something</h2>
+            <p class="contact-text">have an idea for a project or want to collaborate?</p>
+            <div class="contact-links">
+                <a href="mailto:eric@example.com" class="contact-link">
+                    📧 email me
+                </a>
+                <a href="#" class="contact-link">
+                    💼 linkedin
+                </a>
+                <a href="#" class="contact-link">
+                    📁 github
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    
+                    if (filterValue === 'all' || category === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.classList.add('show');
+                        }, 100);
+                    } else {
+                        card.classList.remove('show');
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Intersection Observer for project cards
+        function createObserver() {
+            const options = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('show');
+                        }, index * 100);
+                    }
+                });
+            }, options);
+
+            projectCards.forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = counter.textContent;
+                const numericValue = parseInt(target.replace(/\D/g, ''));
+                const suffix = target.replace(/\d/g, '');
+                
+                let current = 0;
+                const increment = numericValue / 30;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= numericValue) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + suffix;
+                    }
+                }, 50);
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            createObserver();
+            
+            // Animate stats when they come into view
+            const statsSection = document.querySelector('.stats-section');
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+        });
+    </script>
+</body>
+</html>
+>>>>>>> f7b8c51e97395a986566453100c66b1fba943df0
